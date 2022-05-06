@@ -10,10 +10,28 @@ html, body {
     box-sizing: border-box;
 }
 
-.grid-container {
-    display: grid;
+.flex-container {
+    display:flex;
+    justify-content: center;
+}
+
+.header {
+    padding: 5%;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.flex-container-body {
+    display:flex;
+    justify-content: center;
     height: 100%;
     width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    height: 75%;
+    width: 75%;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
 }
