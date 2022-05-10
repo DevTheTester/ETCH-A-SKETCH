@@ -14,18 +14,7 @@ let allGridItems = document.querySelectorAll('.grid-item');
 // and change back when mouse isn't over
 
 allGridItems.forEach(item => 
-    item.addEventListener('mousedown', () =>
-    item.style.backgroundColor = 'black')
-);
-
-allGridItems.forEach(item => 
     item.addEventListener('mouseover', () =>
-    item.style.backgroundColor = 'black')
-);
-
-allGridItems.forEach(item => 
-    item.addEventListener('mouseout', () =>
-    item.style.backgroundColor = 'rgb(177, 229, 231)')
-);
+    item.style.backgroundColor = 'black' ));
 
 
