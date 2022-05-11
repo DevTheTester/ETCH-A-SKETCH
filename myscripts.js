@@ -21,6 +21,6 @@ allGridItems.forEach(item =>
 
 clearButton.addEventListener('click', () =>
   allGridItems.forEach(item =>
-    item.backgroundColor = 'rgb(177, 229, 231)'));
+    item.style.backgroundColor = 'rgb(177, 229, 231)'));
 
 
