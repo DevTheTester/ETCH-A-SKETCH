@@ -19,8 +19,19 @@ allGridItems.forEach(item =>
   item.addEventListener('mouseover', () =>
   item.style.backgroundColor = 'black' ));
 
+// function to reset color of blocks when clear button clicked
+//  has to work for all grid sizes
+
 clearButton.addEventListener('click', () =>
   allGridItems.forEach(item =>
     item.style.backgroundColor = 'rgb(177, 229, 231)'));
 
+// Function to prompt user to select amount of squares per side 
+// when resize button is clicked, and change grid accordingly.
+
+// resizeButton.addEventListener('click', () =>
+//   allGridItems.forEach(item => item.remove());
+//   let newGridItemAmount = prompt("How many squares would you like each side?");
+//   console.log(newGridItemAmount);
+// )
 
