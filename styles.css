@@ -16,9 +16,21 @@ html, body {
 }
 
 .header {
-    padding: 5%;
+    margin-top: 5%;
     font-size: 42px;
     font-weight: 800;
+}
+
+.options-bar {
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    gap: 18%;
+}
+
+button {
+    background-color: pink;
+    font-size: 18px
 }
 
 .flex-container-body {
