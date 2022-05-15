@@ -24,13 +24,17 @@ function addPen() {
 
 createGrid(sizeInput);
 addPen();
+
 // function to reset color of blocks when clear button clicked
 //  has to work for all grid sizes
 let clearButton = document.querySelector('.clear');
-clearButton.addEventListener('click', () =>
-  allGridItems.forEach(item =>
-    item.style.backgroundColor = 'rgb(177, 229, 231)'));
+clearButton.addEventListener('click', clearGrid);
 
+function clearGrid() {
+  let allGridItems = document.querySelectorAll('.grid-item');
+  allGridItems.forEach(item =>
+    item.style.backgroundColor = 'rgb(177, 229, 231)');
+  }
 // Function to prompt user to select amount of squares per side 
 // when resize button is clicked, and change grid accordingly.
 
