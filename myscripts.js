@@ -2,13 +2,19 @@
 let gridContainer = document.querySelector('.grid-container');
 let clearButton = document.querySelector('.clear');
 let resizeButton = document.querySelector('.resize');
-
+let sizeInput = 16
 // Grid container is set up to divide whole page 16x16 for loop will add that amount of items
-for (let i = 0; i < 16 * 16; i++) {
-  let gridItem = document.createElement('div')
-  gridItem.classList.add('grid-item')
-  gridContainer.appendChild(gridItem)
-};
+
+function createGrid(size) {
+  gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+  for (let i = 0; i < size * size; i++) {
+    let gridItem = document.createElement('div')
+    gridItem.classList.add('grid-item')
+    gridContainer.appendChild(gridItem)
+}};
+
+createGrid(sizeInput);
 
 let allGridItems = document.querySelectorAll('.grid-item');
 
