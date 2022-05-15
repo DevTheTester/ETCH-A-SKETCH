@@ -1,10 +1,10 @@
 // Get grid container as variable, create grid item so we can add using for loop
 let gridContainer = document.querySelector('.grid-container');
-let clearButton = document.querySelector('.clear');
 let resizeButton = document.querySelector('.resize');
 let sizeInput = 16
-// Grid container is set up to divide whole page 16x16 for loop will add that amount of items
 
+// function that takes into account a size so we can use a prompt later to choose how many 
+// sides we want our grid to have and have the right amount of items to fill the container up.
 function createGrid(size) {
   gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -14,20 +14,19 @@ function createGrid(size) {
     gridContainer.appendChild(gridItem)
 }};
 
+
+function addPen() {
+  let allGridItems = document.querySelectorAll('.grid-item');
+  allGridItems.forEach(item => 
+    item.addEventListener('mouseover', () =>
+    item.style.backgroundColor = 'black' ));
+  }
+
 createGrid(sizeInput);
-
-let allGridItems = document.querySelectorAll('.grid-item');
-
-// Get grid item to change color when hovered over
-// and change back when mouse isn't over
-
-allGridItems.forEach(item => 
-  item.addEventListener('mouseover', () =>
-  item.style.backgroundColor = 'black' ));
-
+addPen();
 // function to reset color of blocks when clear button clicked
 //  has to work for all grid sizes
-
+let clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', () =>
   allGridItems.forEach(item =>
     item.style.backgroundColor = 'rgb(177, 229, 231)'));
