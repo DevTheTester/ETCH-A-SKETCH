@@ -1,6 +1,5 @@
 // Get grid container as variable, create grid item so we can add using for loop
 let gridContainer = document.querySelector('.grid-container');
-let resizeButton = document.querySelector('.resize');
 let sizeInput = 16
 
 // function that takes into account a size so we can use a prompt later to choose how many 
@@ -35,12 +34,20 @@ function clearGrid() {
   allGridItems.forEach(item =>
     item.style.backgroundColor = 'rgb(177, 229, 231)');
   }
+
 // Function to prompt user to select amount of squares per side 
 // when resize button is clicked, and change grid accordingly.
 
-// resizeButton.addEventListener('click', () =>
-//   allGridItems.forEach(item => item.remove());
-//   let newGridItemAmount = prompt("How many squares would you like each side?");
-//   console.log(newGridItemAmount);
-// )
+let resizeButton = document.querySelector('.resize');
+
+function removeGridItems() {
+  let allGridItems = document.querySelectorAll('.grid-item');
+  allGridItems.forEach(item =>
+    item.remove());
+}
+
+resizeButton.addEventListener('click', removeGridItems);
+resizeButton.addEventListener('click', () => createGrid(parseInt(prompt('How many squares would you like each side?'))));
+resizeButton.addEventListener('click', addPen);
+
 
