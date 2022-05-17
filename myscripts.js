@@ -1,10 +1,8 @@
-// Get grid container as variable, create grid item so we can add using for loop
+// creates grid filled with perfect squares, takes size parameter to divide up the square and fil it evenly.
 let gridContainer = document.querySelector('.grid-container');
-let sizeInput = 16
 
-// function that takes into account a size so we can use a prompt later to choose how many 
-// sides we want our grid to have and have the right amount of items to fill the container up.
 function createGrid(size) {
+  clearGrid()
   gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   for (let i = 0; i < size * size; i++) {
@@ -13,7 +11,7 @@ function createGrid(size) {
     gridContainer.appendChild(gridItem)
 }};
 
-
+// When mouse passes over a square it will change color to black.
 function addPen() {
   let allGridItems = document.querySelectorAll('.grid-item');
   allGridItems.forEach(item => 
@@ -21,33 +19,38 @@ function addPen() {
     item.style.backgroundColor = 'black' ));
   }
 
-createGrid(sizeInput);
-addPen();
-
-// function to reset color of blocks when clear button clicked
-//  has to work for all grid sizes
-let clearButton = document.querySelector('.clear');
-clearButton.addEventListener('click', clearGrid);
-
+// Clears black squares
 function clearGrid() {
   let allGridItems = document.querySelectorAll('.grid-item');
   allGridItems.forEach(item =>
     item.style.backgroundColor = 'rgb(177, 229, 231)');
   }
 
-// Function to prompt user to select amount of squares per side 
-// when resize button is clicked, and change grid accordingly.
-
-let resizeButton = document.querySelector('.resize');
-
-function removeGridItems() {
-  let allGridItems = document.querySelectorAll('.grid-item');
-  allGridItems.forEach(item =>
-    item.remove());
+// Checks if input is legit.
+function takeUserSize() {
+  let userInput = prompt('How many squares each side? - Maximum 100.');
+  if (isNaN(userInput)) {
+    alert('Input must be a number.');
+    return false;
+  }
+  else if (userInput > 100) {
+    alert('Input must not exceed 100.')
+    return false;
+  }
+  else if (userInput <= 0) {
+  alert('Input must be greater than 0.')
+  return false;
+  }
+  else {return userInput}
 }
 
-resizeButton.addEventListener('click', removeGridItems);
-resizeButton.addEventListener('click', () => createGrid(parseInt(prompt('How many squares would you like each side?'))));
+createGrid(16);
+addPen();
+
+let resizeButton = document.querySelector('.resize');
+resizeButton.addEventListener('click', () => createGrid(takeUserSize()));
 resizeButton.addEventListener('click', addPen);
 
+let clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', clearGrid);
 
